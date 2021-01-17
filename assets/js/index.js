@@ -31,8 +31,14 @@ class RangeValidator{
   }
 
   get range() {
-    if (this._from <= this._to) {
-      return [this._from, this._to];
+    return [this._from, this._to];
+  }
+
+  set range(from, to) {
+    if (from <= to) {
+      this._from = from;
+      this._to = to;
+      return;
     }
     throw new RangeError('"to" can not be less than "from"');
   }
